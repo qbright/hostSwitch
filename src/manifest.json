@@ -1,0 +1,19 @@
+{
+  "name":"hostSwitch",
+ "version":"1.0.0.0",
+  "yyexplorer_version":"1.0.1166.1",
+  "description": "host Switch",
+ "permissions": [ {
+      "fileSystem": [ "write", "retainEntries" ]
+   }, "storage" ],
+    "app": {
+      "background": {
+         "scripts": ["js/test.js"],
+         "persistent": true
+      }
+   },
+  "web_accessible_resources":[
+      "*" 
+  ],
+  "manifest_version": 2
+}
