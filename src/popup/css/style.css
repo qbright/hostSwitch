@@ -1,0 +1,126 @@
+body{
+    width:500px;
+    height:500px;
+    background:#F7F7F7;
+    box-shadow: 0 0 4px #000 inset;
+    overflow: hidden;
+}
+
+
+.host,.ip{
+    padding-left: 0;
+}
+.host > li {
+    text-indent: 40px;
+    background: -webkit-linear-gradient(left ,#F0F0F0,#D1D1D1 50%,#EEE8E8);
+    box-shadow: 0 1px 3px #888 inset;
+}
+.host  .title{
+   font-size: 16px;
+   color: #6D6D6D;;
+   font-weight: bold;
+   line-height: 25px;
+    display: inline-block;
+    text-indent: 0px;
+    width: 100%;
+}
+
+.ip > li {
+    text-indent:60px;
+    color:#777;
+
+}
+.host_link,.ip_active,.ip_remove{
+    background-image:url("../img/result.png");
+    display: inline-block;
+    width:15px;
+    height:15px;
+    background-repeat: no-repeat;
+    background-size: 13px 60px;
+    position: relative;
+    top:2px;
+}
+
+
+.ip_active{
+    background-position: 1px -45px;
+    display: none;
+}
+
+.ip_remove{
+    background-position: 1px -22px;
+    display: none;
+    position: relative;
+    left: 25px;
+}
+ .ip > li:hover .ip_remove{
+     display: inline-block;
+ }
+
+
+.ip_active[class*="active_"]{
+    display: inline-block;
+}
+
+.ip > li:hover{
+    background:#D5D5D5;
+    cursor: pointer;
+}
+
+.host_container{
+    width: 248px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+
+.host_link{
+    display: none;
+    font-size: 13px;
+    position: relative;
+    left: 10px;
+    top: 3px;
+    cursor:pointer;
+}
+
+.host .title:hover .host_link{
+    display: inline-block;
+}
+
+.add_btn{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.48);
+    font-size: 20px;
+    top: -25px;
+    left: -25px;
+    text-indent: 30px;
+    line-height: 69px;
+    color: #FFF;
+    cursor: pointer;
+    box-shadow: 0 0 6px #525252;
+    -webkit-user-select:none;
+}
+
+.add_btn:active{
+    box-shadow:none;
+}
+
+.container_left,.container_right{
+    width:250px;
+    height:500px;
+    float: left;
+    -webkit-transition:margin-left 200ms;
+}
+
+.container_left[class*="hide"]{
+    margin-left:-250px;
+}
+
+.container{
+    width:500px;
+}

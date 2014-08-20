@@ -18,9 +18,9 @@
         PROXY_MODE_SYSTEM:"system"
     }
     window.GLB = GLB;
-    var proxyHandler = new ProxyHandler()
+    var proxyHandler = new ProxyHandler();
 
-  //  startPacStatus(proxyHandler);
+
     var proxy = {
         "www.baidu.com":[{
             ip:"127.0.0.1",
@@ -53,37 +53,18 @@
             ip:"192.168.1.3",
             enable:true
         }]
-        },
-        proxyObj = [{
-            host:"www.baidu.com",
-            ip:"127.0.0.1"
-        },{
-            host:"yyexplorer.game.yy.com",
-            ip:"172.17.6.31"
-        },{
-            host:"yeconfig.game.yy.com",
-            ip:"172.17.6.156"
-        },{
-            host:"cms.duowan.com",
-            ip:"183.61.143.2"
-        },{
-            host:"aa.domain.com",
-            ip:"192.168.132.134"
-        },{
-            host:"bb.domain.com",
-            ip:"192.168.132.135"
-        },{
-            host:"cc.domain.com",
-            ip:"192.168.132.136"
-        }];
-    var pacScript = proxyHandler.pacBuilder(proxyObj);
+        };
+
+    var pacScript = proxyHandler.pacBuilder(proxy);
 
     proxyHandler.setProxy(pacScript);
 
 
     console.log(pacScript);
    
-
+    chrome.browserAction.onClicked.addListener(function(){
+        window.open(chrome.extension.getURL("popup/popup.html"))
+    });
 
 
 

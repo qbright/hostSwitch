@@ -9,6 +9,9 @@
          "scripts": ["js/assets/parseUri.js","js/assets/Class.js","js/background/proxyHandler.js","js/background/background.js"],
          "persistent": true
   },
+  "browser_action":{
+
+  },
   "web_accessible_resources":[
       "*" 
   ],

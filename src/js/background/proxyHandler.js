@@ -18,12 +18,25 @@ var ProxyHandler = Class.extend({
         pac.push("if(!port){port = 80}");
     },
     _buildProxy:function(pac,proxys){
-        for(var i = 0,proxy;proxy = proxys[i]; i ++ ){
-                pac.push("if(host == \"" + proxy.host + "\"){");
+        for(var proxy in proxys){
+            var host = proxy,
+                ips = proxys[proxy],
+                ip = "";
+            for(var i = 0, ipInfo; ipInfo = ips[i]; i ++){
+                if(ipInfo.enable) {
+                    ip = ipInfo.ip;
+                    break;
+                }
+            }
+            if(ip){
+                pac.push("if(host == \"" + host + "\"){");
                 pac.push("alert(host + '=============' + port)");
-                pac.push("\treturn \"PROXY " + proxy.ip +":\" + port;");
+                pac.push("\treturn \"PROXY " + ip +":\" + port;");
                 pac.push("}");
+            }
+
         }
+
     },
     _buildFooter:function(pac){
         pac.push("\treturn \"DIRECT\";");
