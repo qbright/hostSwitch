@@ -5,3 +5,8 @@
  * Time: 10:47
  * To change this template use File | Settings | File Templates.
  */
+
+(function(){
+    new View();
+
+})()

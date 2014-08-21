@@ -1,9 +1,10 @@
 body{
-    width:500px;
+    width:250px;
     height:500px;
     background:#F7F7F7;
     box-shadow: 0 0 4px #000 inset;
     overflow: hidden;
+    -webkit-user-select:none;
 }
 
 
@@ -11,10 +12,12 @@ body{
     padding-left: 0;
 }
 .host > li {
-    text-indent: 40px;
+    text-indent: 30px;
     background: -webkit-linear-gradient(left ,#F0F0F0,#D1D1D1 50%,#EEE8E8);
     box-shadow: 0 1px 3px #888 inset;
 }
+
+
 .host  .title{
    font-size: 16px;
    color: #6D6D6D;;
@@ -23,10 +26,11 @@ body{
     display: inline-block;
     text-indent: 0px;
     width: 100%;
+    cursor: pointer;
 }
 
 .ip > li {
-    text-indent:60px;
+    text-indent:50px;
     color:#777;
 
 }
@@ -83,13 +87,14 @@ body{
     left: 10px;
     top: 3px;
     cursor:pointer;
+    background-position: 1px -22px;
 }
 
 .host .title:hover .host_link{
     display: inline-block;
 }
 
-.add_btn{
+.top_btn{
     position: absolute;
     width: 50px;
     height: 50px;
@@ -106,7 +111,7 @@ body{
     -webkit-user-select:none;
 }
 
-.add_btn:active{
+.top_btn:active{
     box-shadow:none;
 }
 
@@ -120,7 +125,31 @@ body{
 .container_left[class*="hide"]{
     margin-left:-250px;
 }
+.container_left[class*="hide"]  .add_btn{
+    display: none; 
+}
+
+.container_left[class*="hide"] .return_btn{
+    display: block;
+}
 
 .container{
     width:500px;
+}
+
+.return_btn{
+    font-size:13px;
+    text-indent:29px;
+    display: none;
+}
+
+.form_container{
+    padding: 45px 27px;
+}
+
+#form_host_input{
+    text-indent: 4px;
+}
+.ip_list{
+    padding:25px 41px;
 }

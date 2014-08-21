@@ -31,6 +31,7 @@ var storage = {
 	},
 	bindChange:function(cb){
 		cb = cb || this._getEmptyFun;
-		this.l_storage.onChanged.addListener(cb);
+
+        chrome.storage.onChanged.addListener(cb);
 	}
 }

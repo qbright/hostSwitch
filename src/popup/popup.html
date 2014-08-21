@@ -9,113 +9,16 @@
 <body>
     <div class="container">
         <div class="container_left">
-            <div class="add_btn">
+            <div class="top_btn add_btn">
                 &#43;
+            </div>
+
+            <div class="top_btn return_btn">
+                &crarr;
             </div>
             <section class="host_container">
 
                 <ul class="host">
-                    <li>
-                        <span class="title">www.baidu.com  <span class="host_link "></span> </span>
-                        <ul class="ip">
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active active_" title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active " title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active " title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li>
-                        <span class="title">www.baidu.com  <span class="host_link "></span> </span>
-                        <ul class="ip">
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active active_" title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active " title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active " title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li>
-                        <span class="title">www.baidu.com  <span class="host_link "></span> </span>
-                        <ul class="ip">
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active active_" title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active " title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active " title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li>
-                        <span class="title">www.baidu.com  <span class="host_link "></span> </span>
-                        <ul class="ip">
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active active_" title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active " title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-                            <li>
-
-                                <span class="ip_text" title="ip地址">127.0.0.1</span>
-                                <span class="ip_active " title="已启用"></span>
-                                <span class="ip_remove"  title="删除"></span>
-                            </li>
-
-                        </ul>
-                    </li>
-
-
 
 
                 </ul>
@@ -124,11 +27,53 @@
         </div>
 
         <div class="container_right">
-            213421341234234
+           <div class="form_container">
+            <label for="form_host_input">Host:</label>
+            <input type="text" id="form_host_input"  value="">
 
+            <label for="form_ip_input">&nbsp;&nbsp;&nbsp;&nbsp; Ip:</label>
+            <input type="text" id="form_ip_input" value="" >
+               <ul class="ip_list">
+
+               </ul>
+
+            <button id="commit_rule">确定</button>
+           </div>
         </div>
     </div>
+
+
+    <script type="text/html" id="host_list_tmpl">
+
+        <% for(var proxy in proxys){%>
+            <% var ips = proxys[proxy]%>
+            <li class="">
+                <span class="title" data-link="<%-proxy%>" ><%-proxy%>  <span class="host_link" data-link="<%-proxy%>" ></span> </span>
+                    <ul class="ip">
+                        <%for(var i = 0,ipInfo; ipInfo = ips[i]; i ++){%>
+                            <li class="host_entry" data-link="<%-proxy%>"  data-ip="<%-ipInfo.ip%>" >
+                                <span class="ip_text" title="ip地址" data-ip="<%-ipInfo.ip%>" data-link="<%-proxy%>"><%-ipInfo.ip%></span>
+                                <span class="ip_active <%if(ipInfo.enable){%>active_<%}%>" data-link="<%-proxy%>" title="已启用"></span>
+                                <span class="ip_remove"  data-ip="<%-ipInfo.ip%>" data-link="<%-proxy%>"  title="删除"></span>
+                            </li>
+
+                        <%}%>
+
+
+                    </ul>
+            </li>
+
+        <%}%>
+
+
+
+    </script>
+
+
+    <script src="../js/assets/underscore.min.js"></script>
+    <script src="../js/assets/Class.js"></script>
     <script src="../js/assets/storage.js"></script>
+    <script src="../popup/js/hostView.js"></script>
     <script src="../popup/js/index.js"></script>
 </body>
 </html>

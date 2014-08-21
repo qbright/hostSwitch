@@ -34,9 +34,7 @@ var ProxyHandler = Class.extend({
                 pac.push("\treturn \"PROXY " + ip +":\" + port;");
                 pac.push("}");
             }
-
         }
-
     },
     _buildFooter:function(pac){
         pac.push("\treturn \"DIRECT\";");

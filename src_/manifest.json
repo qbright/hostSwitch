@@ -1,0 +1,17 @@
+{
+  "name":"hostSwitch1",
+ "version":"1.0.0.0",
+  "yyexplorer_version":"1.0.1166.1",
+  "description": "host Switch",
+ "permissions": [ 
+  "storage","proxy","webRequest", 
+                  "webRequestBlocking","http://*/*" ],
+  "background": {
+         "scripts": ["js/assets/parseUri.js","js/assets/Class.js","js/background/test.js","js/background/pacBuilder.js","js/background/background.js"],
+         "persistent": true
+  },
+  "web_accessible_resources":[
+      "*" 
+  ],
+  "manifest_version": 2
+}

@@ -21,53 +21,25 @@
     var proxyHandler = new ProxyHandler();
 
 
-    var proxy = {
-        "www.baidu.com":[{
-            ip:"127.0.0.1",
-            enable:true
-        },{
-            ip:"127.0.0.0",
-            enable:false
-        }],
-        "yyexplorer.game.yy.com":[{
-            ip:"172.17.6.31",
-            enable:true
-        }],
-        "yeconfig.game.yy.com":[{
-            ip:"172.17.6.156",
-            enable:true
-        }],
-        "cms.duowan.com":[{
-            ip:"183.61.143.2",
-            enable:true
-        }],
-        "aa.domain.com":[{
-            ip:"192.168.1.1",
-            enable:true
-        }],
-        "bb.domain.com":[{
-            ip:"192.168.1.2",
-            enable:true
-        }],
-        "cc.domain.com":[{
-            ip:"192.168.1.3",
-            enable:true
-        }]
-        };
+    setProxy();
 
-    var pacScript = proxyHandler.pacBuilder(proxy);
+    storage.bindChange(function(){
+        setProxy()  ;
+    });
 
-    proxyHandler.setProxy(pacScript);
-
-
-    console.log(pacScript);
-   
     chrome.browserAction.onClicked.addListener(function(){
         window.open(chrome.extension.getURL("popup/popup.html"))
     });
 
+    function setProxy(){
+        storage.get("proxys",function(info){
+            var proxys = info.proxys,
+                pacScript = proxyHandler.pacBuilder(proxys);
 
+            proxyHandler.setProxy(pacScript);
 
+        });
+    }
 
 
 })();
